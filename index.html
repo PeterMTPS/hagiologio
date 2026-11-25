@@ -1,0 +1,1122 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/png" href="logo/simbolo-96.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hagiológio">
+<meta property="og:description" content="Catálogo dos 7.705 santos da Igreja Católica: festas, padroados, iconografia e retratos.">
+<meta property="og:url" content="https://petermtps.github.io/hagiologio/">
+<meta property="og:image" content="https://petermtps.github.io/hagiologio/thumb.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0} img{max-width:100%} [hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Hagiológio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Catálogo dos santos da Igreja Católica: festas, datas, padroados e iconografia, a partir do Wikidata.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=UnifrakturMaguntia&display=swap">
+<style>
+/* Layout: a rose-window hero, then a nave of ogival niches (the catalog), a liturgical calendar,
+   and each saint opened as a rubricated manuscript folio. One nocturnal look, by choice. */
+:root {
+  color-scheme: dark;
+  --nave: #0c0a10;
+  --vault: #15111b;
+  --vault-2: #1c1724;
+  --rib: #2c2434;
+  --rib-strong: #463a50;
+  --vellum: #e8dfcd;
+  --ash: #a69daa;
+  --ash-dim: #7c7381;
+  --gilt: #cfa957;
+  --gilt-bright: #f1d892;
+  --gilt-dim: #7a6232;
+  --martyr: #a8262e;
+  --lapis: #1f3f7a;
+  --amethyst: #4f2866;
+  --verdigris: #1f5a50;
+  --garnet: #6e1621;
+  --folio: #f0e6cf;
+  --folio-edge: #d9c8a3;
+  --ink: #2a1d13;
+  --ink-soft: #6a5540;
+  --rubric: #9e2119;
+  --lead: #07050a;
+
+  --f-display: "UnifrakturMaguntia", "Old English Text MT", "Goudy Text MT", serif;
+  --f-text: "EB Garamond", Garamond, "Hoefler Text", "Times New Roman", serif;
+  --f-label: "Cinzel", "Trajan Pro", "Optima", Georgia, serif;
+
+  --step--1: 0.8125rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: 2.3rem;
+  --step-4: clamp(3.4rem, 9vw, 6.6rem);
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--nave);
+  color: var(--vellum);
+  font-family: var(--f-text);
+  font-size: var(--step-0);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--nave);
+}
+body.locked { overflow: hidden; }
+a { color: var(--gilt); }
+a:hover { color: var(--gilt-bright); }
+:focus-visible { outline: 2px solid var(--gilt-bright); outline-offset: 3px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; font-weight: 400; }
+.wrap { max-width: 1320px; margin: 0 auto; padding-left: var(--gutter-l); padding-right: var(--gutter-r); }
+.label {
+  font-family: var(--f-label); font-size: var(--step--1); letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--gilt); font-weight: 600;
+}
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- Top bar ---------- */
+.topbar { border-bottom: 1px solid var(--rib); }
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; flex-wrap: wrap; }
+.brand { font-family: var(--f-display); font-size: 1.6rem; color: var(--gilt-bright); text-decoration: none; line-height: 1; display: inline-flex; align-items: center; gap: 10px; }
+.brand img { width: 34px; height: 34px; flex: none; filter: drop-shadow(0 0 8px rgba(207, 169, 87, 0.25)); }
+.topnav { display: flex; gap: 22px; flex-wrap: wrap; }
+.topnav a { font-family: var(--f-label); font-size: var(--step--1); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ash); text-decoration: none; }
+.topnav a:hover { color: var(--gilt-bright); }
+@media (max-width: 520px) { .topnav { gap: 6px 16px; } .topnav a { font-size: 0.72rem; letter-spacing: 0.1em; } }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--rib); }
+.hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(115deg, transparent 38%, rgba(241, 216, 146, 0.05) 46%, transparent 54%),
+    linear-gradient(122deg, transparent 50%, rgba(120, 140, 230, 0.05) 57%, transparent 64%),
+    radial-gradient(ellipse 60% 70% at 78% 40%, rgba(70, 60, 140, 0.22), transparent 70%);
+}
+.hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 40px; align-items: center; padding-block: 56px 64px; }
+.hero-text { min-width: 0; display: grid; gap: 20px; }
+.hero h1 { font-family: var(--f-display); font-size: var(--step-4); line-height: 0.95; color: var(--gilt-bright); text-shadow: 0 0 40px rgba(207, 169, 87, 0.25); }
+.lede { font-size: var(--step-1); max-width: 34em; color: var(--vellum); margin: 0; }
+.lede em { color: var(--gilt-bright); font-style: italic; }
+.hero-search { position: relative; max-width: 560px; }
+.hero-search input, .search input {
+  width: 100%; font: inherit; font-size: var(--step-1); color: var(--vellum);
+  background: var(--vault); border: 1px solid var(--rib-strong); border-radius: 2px;
+  padding: 14px 16px 14px 48px;
+}
+.hero-search input::placeholder, .search input::placeholder { color: var(--ash-dim); font-style: italic; }
+.hero-search input:focus, .search input:focus { outline: none; border-color: var(--gilt); box-shadow: 0 0 0 3px rgba(207, 169, 87, 0.18); }
+.hero-search svg, .search svg { position: absolute; left: 16px; top: 50%; translate: 0 -50%; width: 20px; height: 20px; stroke: var(--gilt); fill: none; stroke-width: 1.6; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 0; padding: 0; list-style: none; }
+.stats li { display: grid; }
+.stats b { font-family: var(--f-label); font-size: var(--step-2); color: var(--gilt-bright); font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.stats span { font-size: var(--step--1); color: var(--ash); letter-spacing: 0.04em; }
+.rose-wrap { position: relative; justify-self: center; width: min(100%, 460px); aspect-ratio: 1; max-width: 100%; }
+.rose-wrap canvas { width: 100%; height: 100%; display: block; border-radius: 50%; box-shadow: 0 0 120px rgba(80, 90, 200, 0.22), 0 0 40px rgba(168, 38, 46, 0.12); }
+.rose-light {
+  position: absolute; inset: 0; border-radius: 50%; pointer-events: none; mix-blend-mode: screen;
+  background: conic-gradient(from 0deg, transparent 0 12%, rgba(255, 236, 190, 0.16) 18%, transparent 26% 62%, rgba(150, 170, 255, 0.12) 70%, transparent 78%);
+  animation: turn 90s linear infinite;
+}
+@keyframes turn { to { transform: rotate(360deg); } }
+
+/* ---------- Sections ---------- */
+section { scroll-margin-top: 90px; }
+.sec-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; }
+.sec-head h2 { font-family: var(--f-display); font-size: var(--step-3); color: var(--gilt-bright); line-height: 1.05; }
+.sec-head p { margin: 4px 0 0; color: var(--ash); max-width: 46em; }
+.today { padding-block: 52px 36px; }
+.today-row { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(150px, 172px); gap: 22px; overflow-x: auto; padding-bottom: 14px; scrollbar-color: var(--rib-strong) transparent; }
+.btn {
+  font-family: var(--f-label); font-size: var(--step--1); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+  color: var(--gilt-bright); background: transparent; border: 1px solid var(--gilt-dim); border-radius: 2px;
+  padding: 10px 16px; cursor: pointer;
+}
+.btn:hover { border-color: var(--gilt); background: rgba(207, 169, 87, 0.08); }
+
+/* ---------- Toolbar ---------- */
+.catalog { padding-block: 30px 60px; border-top: 1px solid var(--rib); }
+.toolbar { z-index: 6; background: rgba(12, 10, 16, 0.94); border-bottom: 1px solid var(--rib); margin-bottom: 30px; }
+@supports (backdrop-filter: blur(6px)) { .toolbar { background: rgba(12, 10, 16, 0.82); backdrop-filter: blur(8px); } }
+@media (min-width: 900px) { .toolbar { position: sticky; top: env(safe-area-inset-top, 0px); } }
+.toolbar .wrap { display: grid; gap: 12px; padding-block: 14px; }
+.tb-row { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: center; }
+.search { position: relative; flex: 1 1 280px; min-width: 0; }
+.search input { font-size: var(--step-0); padding: 10px 12px 10px 42px; }
+.search svg { left: 14px; width: 18px; height: 18px; }
+select, .check {
+  font: inherit; font-size: 0.95rem; color: var(--vellum); background: var(--vault);
+  border: 1px solid var(--rib-strong); border-radius: 2px; padding: 8px 10px; max-width: 100%;
+}
+select:focus { outline: none; border-color: var(--gilt); }
+.check { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.check input { accent-color: var(--gilt); margin: 0; }
+.count { font-family: var(--f-label); font-size: var(--step--1); letter-spacing: 0.1em; color: var(--ash); text-transform: uppercase; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.count b { color: var(--gilt-bright); font-weight: 600; }
+.chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: thin; scrollbar-color: var(--rib-strong) transparent; }
+.chip {
+  flex: none; font: inherit; font-size: 0.95rem; color: var(--ash); background: transparent;
+  border: 1px solid var(--rib-strong); border-radius: 999px; padding: 5px 14px; cursor: pointer; white-space: nowrap;
+}
+.chip:hover { color: var(--vellum); border-color: var(--gilt-dim); }
+.chip[aria-pressed="true"] { color: var(--nave); background: var(--gilt); border-color: var(--gilt); }
+.chip.m[aria-pressed="true"] { background: var(--martyr); border-color: var(--martyr); color: var(--vellum); }
+.active-filter { display: inline-flex; align-items: center; gap: 8px; font-size: 0.95rem; color: var(--gilt-bright); border: 1px dashed var(--gilt-dim); padding: 4px 6px 4px 12px; border-radius: 2px; }
+.active-filter button { font: inherit; color: var(--gilt-bright); background: none; border: 0; cursor: pointer; padding: 0 6px; font-size: 1.1rem; line-height: 1; }
+.linkbtn { font: inherit; font-size: 0.95rem; color: var(--ash); background: none; border: 0; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; padding: 4px; }
+.linkbtn:hover { color: var(--gilt-bright); }
+
+/* ---------- Niches (cards) ---------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(152px, 1fr)); gap: 34px 20px; }
+@media (max-width: 480px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 14px; } }
+.card { display: grid; gap: 10px; align-content: start; text-decoration: none; color: inherit; min-width: 0; }
+.card:focus-visible { outline-offset: 6px; }
+.arch { position: relative; aspect-ratio: 4 / 5; width: 100%; max-width: 100%; }
+.arch-img {
+  position: absolute; inset: 0; clip-path: url(#ogive); background-color: var(--vault-2);
+  background-size: 1000% 1000%; background-repeat: no-repeat;
+  filter: saturate(0.92) contrast(1.02);
+  transition: filter 0.3s ease;
+}
+.arch-img::after {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 90% 80% at 50% 38%, transparent 55%, rgba(8, 6, 10, 0.55) 100%);
+}
+.arch-img.emblem {
+  display: grid; place-items: center;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255, 240, 200, 0.16), transparent 58%),
+    repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.16) 0 1px, transparent 1px 14px),
+    repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.16) 0 1px, transparent 1px 14px),
+    var(--glass, var(--lapis));
+}
+.arch-img.emblem svg { width: 46%; height: auto; color: var(--gilt-bright); stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 6px rgba(241, 216, 146, 0.35)); margin-top: 12%; }
+.arch-frame { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.arch-frame path { fill: none; stroke: var(--gilt-dim); stroke-width: 1.5; vector-effect: non-scaling-stroke; transition: stroke 0.25s ease; }
+.arch-frame path + path { stroke: rgba(241, 216, 146, 0.12); stroke-width: 6; }
+.card.red .arch-frame path:first-child { stroke: #7e2a2e; }
+.card:hover .arch-frame path:first-child, .card:focus-visible .arch-frame path:first-child { stroke: var(--gilt-bright); }
+.card:hover .arch-img { filter: saturate(1.08) contrast(1.06) brightness(1.08); }
+.plaque { display: grid; gap: 2px; text-align: center; min-width: 0; }
+.plaque .hon { font-family: var(--f-label); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gilt); font-weight: 600; min-height: 1em; }
+.plaque .nm { font-size: 1.08rem; line-height: 1.2; color: var(--vellum); font-weight: 500; overflow-wrap: anywhere; }
+.plaque .ep { font-size: 0.88rem; color: var(--ash); font-style: italic; line-height: 1.3; }
+.plaque .dt { font-size: 0.82rem; color: var(--ash-dim); font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+.plaque .dt .red { color: #d46a6f; }
+.empty { padding: 60px 0; text-align: center; color: var(--ash); font-style: italic; font-size: var(--step-1); }
+.loading { padding: 80px 0; text-align: center; color: var(--ash); font-style: italic; font-size: var(--step-1); }
+.sentinel { height: 1px; }
+
+/* ---------- Calendar ---------- */
+.calendar { padding-block: 60px; border-top: 1px solid var(--rib); }
+.months { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 22px; }
+.month { background: var(--vault); border: 1px solid var(--rib); padding: 16px 16px 18px; }
+.month h3 { font-family: var(--f-label); font-size: 0.95rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gilt-bright); font-weight: 600; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: baseline; }
+.month h3 small { font-family: var(--f-text); text-transform: none; letter-spacing: 0; color: var(--ash-dim); font-size: 0.85rem; font-weight: 400; font-variant-numeric: tabular-nums; }
+.days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+.day {
+  font: inherit; font-size: 0.85rem; font-variant-numeric: tabular-nums; color: var(--vellum);
+  aspect-ratio: 1; border: 1px solid transparent; border-radius: 2px; cursor: pointer; padding: 0;
+  background: rgba(207, 169, 87, var(--a, 0.04));
+}
+.day.hi { color: var(--nave); font-weight: 600; }
+.day:hover { border-color: var(--gilt-bright); }
+.day.is-today { border-color: var(--martyr); box-shadow: inset 0 0 0 1px var(--martyr); }
+.legend { display: flex; align-items: center; gap: 10px; color: var(--ash); font-size: 0.9rem; }
+.legend i { display: inline-block; width: 90px; height: 10px; background: linear-gradient(90deg, rgba(207, 169, 87, 0.06), rgba(207, 169, 87, 1)); }
+
+/* ---------- Source ---------- */
+.source { padding-block: 56px 70px; border-top: 1px solid var(--rib); }
+.source-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px 40px; }
+.source-grid > div { min-width: 0; }
+.source h3 { font-family: var(--f-label); font-size: 0.95rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gilt); margin-bottom: 8px; font-weight: 600; }
+.source p { margin: 0 0 10px; color: var(--ash); max-width: 62ch; }
+.source code { font-size: 0.85em; color: var(--vellum); background: var(--vault); padding: 1px 5px; }
+footer { border-top: 1px solid var(--rib); color: var(--ash-dim); font-size: 0.9rem; }
+footer .wrap { padding-block: 22px 96px; display: flex; gap: 16px; justify-content: space-between; flex-wrap: wrap; }
+
+/* ---------- Folio (detail dialog) ---------- */
+dialog.folio {
+  width: min(920px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 0; border: 0;
+  background: var(--folio); color: var(--ink); border-radius: 2px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.7), inset 0 0 80px rgba(150, 110, 50, 0.22);
+  overflow: auto; overscroll-behavior: contain;
+}
+dialog.folio::backdrop { background: rgba(6, 4, 8, 0.78); backdrop-filter: blur(3px); }
+.folio-inner { position: relative; padding: 30px clamp(18px, 4vw, 44px) 34px; border: 1px solid var(--folio-edge); margin: 10px; outline: 1px solid rgba(158, 33, 25, 0.35); outline-offset: -6px; }
+.folio-nav { position: absolute; top: 10px; right: 10px; display: flex; gap: 4px; z-index: 2; }
+.folio-nav button {
+  font-family: var(--f-label); font-size: 1.1rem; width: 40px; height: 40px; border-radius: 2px; cursor: pointer;
+  background: var(--folio); color: var(--rubric); border: 1px solid var(--folio-edge);
+}
+.folio-nav button:hover { background: #e6d8b8; }
+.folio-nav button:disabled { opacity: 0.35; cursor: default; }
+.folio-grid { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 30px; }
+@media (max-width: 680px) { .folio-grid { grid-template-columns: minmax(0, 1fr); } .folio-side { max-width: 230px; } }
+.folio-side { display: grid; gap: 16px; align-content: start; }
+.folio .arch-frame path:first-child { stroke: #8a6a2c; stroke-width: 2; }
+.folio .arch-frame path + path { stroke: rgba(138, 106, 44, 0.18); }
+.feast-box { border-top: 2px solid var(--rubric); border-bottom: 1px solid var(--rubric); padding: 10px 0; text-align: center; }
+.feast-box .lbl { font-family: var(--f-label); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rubric); font-weight: 700; }
+.feast-box .val { font-size: 1.25rem; color: var(--ink); line-height: 1.25; }
+.feast-box .lit { font-size: 0.88rem; color: var(--ink-soft); font-style: italic; margin-top: 4px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.feast-box .lit i { width: 11px; height: 11px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, 0.3); display: inline-block; }
+.folio-main { min-width: 0; padding-right: 70px; }
+@media (max-width: 680px) { .folio-main { padding-right: 0; } }
+.folio .hon { font-family: var(--f-label); font-size: 0.8rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rubric); font-weight: 700; }
+.folio h2 { font-family: var(--f-text); font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.08; color: var(--ink); font-weight: 500; margin-top: 2px; overflow-wrap: anywhere; }
+.folio h2 .cap { font-family: var(--f-display); color: var(--rubric); font-size: 1.35em; line-height: 0.8; margin-right: 2px; font-weight: 400; }
+.folio .latin { font-style: italic; color: var(--ink-soft); margin-top: 6px; font-size: 1.05rem; }
+.folio .namenote { font-size: 0.85rem; color: var(--ink-soft); margin-top: 4px; }
+.folio .epithet { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+.folio .tag { font-family: var(--f-label); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--ink); border: 1px solid rgba(42, 29, 19, 0.35); padding: 3px 8px; border-radius: 2px; }
+.folio .tag.m { color: var(--rubric); border-color: rgba(158, 33, 25, 0.5); }
+.rubric-h { font-family: var(--f-label); font-size: 0.74rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rubric); font-weight: 700; margin: 22px 0 6px; padding-bottom: 4px; border-bottom: 1px solid rgba(158, 33, 25, 0.25); }
+.folio p { margin: 0 0 6px; max-width: 64ch; }
+.folio .desc { font-size: 1.15rem; margin-top: 14px; }
+.folio .desc small { display: block; font-size: 0.8rem; color: var(--ink-soft); font-style: italic; }
+.facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 18px; margin: 0; }
+.facts dt { font-family: var(--f-label); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); padding-top: 4px; font-weight: 600; }
+.facts dd { margin: 0; overflow-wrap: anywhere; }
+@media (max-width: 480px) { .facts { grid-template-columns: minmax(0, 1fr); } .facts dd { margin-bottom: 6px; } }
+.plist { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 0; }
+.plist li { overflow-wrap: anywhere; }
+.plist li:not(:last-child)::after { content: "·"; color: var(--rubric); margin: 0 8px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.links a { color: var(--rubric); font-size: 0.98rem; border: 1px solid rgba(158, 33, 25, 0.35); padding: 4px 10px; border-radius: 2px; text-decoration: none; }
+.links a:hover { background: rgba(158, 33, 25, 0.08); color: var(--rubric); }
+.cal-link { font: inherit; color: var(--rubric); background: none; border: 0; padding: 0; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; font-size: 0.9rem; }
+
+/* ---------- Support (Pix) ---------- */
+.support { padding-block: 56px; border-top: 1px solid var(--rib); }
+.support-card {
+  display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px 44px; align-items: center;
+  background: radial-gradient(ellipse 70% 120% at 100% 0%, rgba(207, 169, 87, 0.10), transparent 60%), var(--vault);
+  border: 1px solid var(--gilt-dim); padding: clamp(20px, 4vw, 40px);
+}
+@media (max-width: 760px) { .support-card { grid-template-columns: minmax(0, 1fr); } }
+.support-card > div { min-width: 0; }
+.support-card h2 { font-family: var(--f-display); font-size: var(--step-3); color: var(--gilt-bright); line-height: 1.05; margin-top: 4px; }
+.support-card p { color: var(--vellum); margin: 12px 0 0; max-width: 52ch; }
+.pix { display: grid; gap: 10px; background: var(--nave); border: 1px solid var(--rib-strong); padding: 18px; }
+.pix .label { font-size: 0.72rem; }
+.pix-key { font-family: var(--f-label); font-size: clamp(1.2rem, 3.4vw, 1.6rem); letter-spacing: 0.08em; color: var(--gilt-bright); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; user-select: all; }
+.pix-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.pix-msg { font-size: 0.92rem; color: var(--ash); min-height: 1.2em; }
+.pix small { color: var(--ash-dim); font-size: 0.88rem; }
+
+/* ---------- Sacred music player ---------- */
+.player {
+  position: fixed; z-index: 8;
+  right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: flex; align-items: center; gap: 10px; max-width: calc(100vw - 32px);
+  background: rgba(21, 17, 27, 0.95); border: 1px solid var(--gilt-dim); border-radius: 999px;
+  padding: 6px 14px 6px 6px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.55), 0 0 24px rgba(207, 169, 87, 0.08);
+}
+.pl-play {
+  flex: none; width: 46px; height: 46px; border-radius: 50%; cursor: pointer; display: grid; place-items: center;
+  background: radial-gradient(circle at 35% 30%, var(--gilt-bright), var(--gilt) 55%, var(--gilt-dim));
+  border: 1px solid var(--gilt-bright); color: var(--nave);
+}
+.pl-play svg { width: 18px; height: 18px; fill: currentColor; }
+.pl-play:hover { filter: brightness(1.08); }
+.player.playing .pl-play { animation: halo 3.5s ease-in-out infinite; }
+@keyframes halo { 0%, 100% { box-shadow: 0 0 0 0 rgba(241, 216, 146, 0.0); } 50% { box-shadow: 0 0 0 6px rgba(241, 216, 146, 0.16); } }
+.pl-info { min-width: 0; display: grid; line-height: 1.2; }
+.pl-info b { font-family: var(--f-label); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gilt); font-weight: 600; }
+.pl-info span { font-size: 0.98rem; color: var(--vellum); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 230px; }
+.pl-info small { font-size: 0.82rem; color: var(--ash); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 230px; font-style: italic; }
+.pl-ctrl { display: flex; align-items: center; gap: 2px; }
+.pl-ctrl button { width: 32px; height: 32px; border-radius: 50%; border: 0; background: transparent; color: var(--gilt-bright); cursor: pointer; display: grid; place-items: center; }
+.pl-ctrl button:hover { background: rgba(207, 169, 87, 0.12); }
+.pl-ctrl svg { width: 14px; height: 14px; fill: currentColor; }
+.pl-vol { width: 80px; accent-color: var(--gilt); }
+@media (max-width: 560px) {
+  .pl-vol { display: none; }
+  .pl-info span, .pl-info small { max-width: 150px; }
+}
+.music-list { margin: 0; padding-left: 1.1em; color: var(--ash); }
+.music-list li { margin-bottom: 6px; }
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); padding-block: 36px 44px; gap: 28px; }
+  .rose-wrap { width: min(72%, 320px); order: -1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rose-light, .player.playing .pl-play { animation: none; }
+  .arch-img, .arch-frame path { transition: none; }
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="ogive" clipPathUnits="objectBoundingBox">
+      <path d="M0,1 L0,0.42 C0,0.2 0.22,0.06 0.5,0 C0.78,0.06 1,0.2 1,0.42 L1,1 Z"/>
+    </clipPath>
+  </defs>
+  <symbol id="sym-cross" viewBox="0 0 64 64"><path d="M32 6 V58 M17 21 H47"/><path d="M32 6 m-3 0 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 M17 21 m-3 0 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0 M47 21 m-3 0 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"/></symbol>
+  <symbol id="sym-palm" viewBox="0 0 64 64"><path d="M22 60 Q28 34 44 6"/><path d="M25 50 L14 46 M27 44 L15 38 M29 38 L18 29 M32 32 L22 21 M35 26 L28 13 M38 20 L35 9 M26 48 L36 49 M28 42 L39 41 M31 36 L42 32 M34 30 L45 24 M37 24 L46 17"/></symbol>
+  <symbol id="sym-crosier" viewBox="0 0 64 64"><path d="M30 60 V26 C30 12 46 8 48 19 C50 29 38 31 38 23 C38 19 42 18 43 21"/><path d="M26 34 H34"/></symbol>
+  <symbol id="sym-keys" viewBox="0 0 64 64"><path d="M20 44 L46 14 M44 44 L18 14"/><circle cx="16" cy="49" r="6"/><circle cx="48" cy="49" r="6"/><path d="M46 14 L51 18 M42 19 L47 23 M18 14 L13 18 M22 19 L17 23"/></symbol>
+  <symbol id="sym-lily" viewBox="0 0 64 64"><path d="M32 60 V28"/><path d="M32 28 C24 24 20 14 25 8 C27 15 29 20 32 28 C35 20 37 15 39 8 C44 14 40 24 32 28 Z"/><path d="M32 27 C30 19 30 12 32 5 C34 12 34 19 32 27"/><path d="M32 48 C26 46 21 44 19 38 C25 39 29 42 32 46 M32 42 C38 40 43 38 45 32 C39 33 35 36 32 40"/></symbol>
+  <symbol id="sym-crown" viewBox="0 0 64 64"><path d="M12 46 L15 20 L25 33 L32 15 L39 33 L49 20 L52 46 Z"/><path d="M12 53 H52"/><circle cx="15" cy="17" r="2.5"/><circle cx="32" cy="12" r="2.5"/><circle cx="49" cy="17" r="2.5"/></symbol>
+  <symbol id="sym-book" viewBox="0 0 64 64"><path d="M10 16 C18 14 26 15 32 20 C38 15 46 14 54 16 V50 C46 48 38 49 32 54 C26 49 18 48 10 50 Z"/><path d="M32 20 V54 M16 24 C20 23.5 24 24 27 25.5 M16 31 C20 30.5 24 31 27 32.5 M37 25.5 C40 24 44 23.5 48 24 M37 32.5 C40 31 44 30.5 48 31"/></symbol>
+  <symbol id="sym-shell" viewBox="0 0 64 64"><path d="M32 56 C18 50 10 36 12 22 C18 12 46 12 52 22 C54 36 46 50 32 56 Z"/><path d="M32 56 L20 16 M32 56 L26 13 M32 56 V12 M32 56 L38 13 M32 56 L44 16"/><path d="M24 56 H40"/></symbol>
+  <symbol id="sym-chalice" viewBox="0 0 64 64"><path d="M18 12 H46 C46 28 40 36 32 36 C24 36 18 28 18 12 Z"/><path d="M32 36 V48 M22 56 C22 50 42 50 42 56 Z"/><path d="M27 24 H37 M32 19 V29"/></symbol>
+</svg>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><img src="logo/simbolo-96.png" alt="" width="34" height="34">Hagiológio</a>
+    <nav class="topnav" aria-label="Seções">
+      <a href="#hoje">Festa de hoje</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#calendario">Calendário</a>
+      <a href="#fonte">Fonte</a>
+      <a href="#apoie">Apoie</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <div class="label">Communio Sanctorum</div>
+        <h1>Hagiológio</h1>
+        <p class="lede">Os <em id="lede-n">7.705</em> santos da Igreja Católica registrados no Wikidata, com festa litúrgica, datas, padroados, iconografia e retratos do Wikimedia Commons.</p>
+        <label class="hero-search">
+          <span class="sr-only">Procurar um santo</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 L21 21"/></svg>
+          <input id="hero-q" type="search" placeholder="Procure um santo: Agostinho, Rita, Pio de Pietrelcina…" autocomplete="off">
+        </label>
+        <ul class="stats" aria-label="Números do catálogo">
+          <li><b id="st-n">7.705</b><span>santos</span></li>
+          <li><b id="st-img">—</b><span>retratos</span></li>
+          <li><b id="st-f">6.429</b><span>com festa no calendário</span></li>
+          <li><b id="st-m">2.237</b><span>mártires</span></li>
+        </ul>
+      </div>
+      <div class="rose-wrap" aria-hidden="true">
+        <canvas id="rose" width="920" height="920"></canvas>
+        <div class="rose-light"></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="today wrap" id="hoje" aria-labelledby="hoje-h">
+    <div class="sec-head">
+      <div>
+        <div class="label" id="hoje-date">Hoje</div>
+        <h2 id="hoje-h">Festa de hoje</h2>
+        <p id="hoje-sub">Os santos celebrados neste dia do calendário.</p>
+      </div>
+      <button class="btn" id="hoje-all" type="button">Ver todos do dia</button>
+    </div>
+    <div class="today-row" id="today-row"><div class="loading">Abrindo o códice…</div></div>
+  </section>
+
+  <section class="catalog" id="catalogo" aria-labelledby="cat-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="label">Catálogo</div>
+          <h2 id="cat-h">Todos os santos</h2>
+          <p>Procure pelo nome, filtre por vocação, época, país ou mês da festa. Clique num nicho para abrir a ficha.</p>
+        </div>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="wrap">
+        <div class="tb-row">
+          <label class="search">
+            <span class="sr-only">Procurar no catálogo</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 L21 21"/></svg>
+            <input id="q" type="search" placeholder="Nome, lugar, ordem religiosa…" autocomplete="off">
+          </label>
+          <label><span class="sr-only">Ordenar</span>
+            <select id="sort">
+              <option value="fame">Mais conhecidos</option>
+              <option value="az">Nome (A–Z)</option>
+              <option value="chrono">Cronológico</option>
+              <option value="feast">Ordem do calendário</option>
+            </select>
+          </label>
+          <span class="count" id="count" aria-live="polite"></span>
+        </div>
+        <div class="chips" id="chips" role="group" aria-label="Vocação"></div>
+        <div class="tb-row">
+          <label><span class="sr-only">Gênero</span>
+            <select id="gender"><option value="">Santos e santas</option><option value="m">Só santos</option><option value="f">Só santas</option><option value="c">Grupos</option></select>
+          </label>
+          <label><span class="sr-only">Época</span><select id="century"><option value="">Todas as épocas</option></select></label>
+          <label><span class="sr-only">País</span><select id="country"><option value="">Todos os países</option></select></label>
+          <label><span class="sr-only">Mês da festa</span><select id="month"><option value="">Qualquer mês</option></select></label>
+          <label class="check"><input type="checkbox" id="img"> Com retrato</label>
+          <span id="dayfilter"></span>
+          <button class="linkbtn" id="clear" type="button">Limpar filtros</button>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="grid" id="grid"></div>
+      <div class="loading" id="grid-loading">Abrindo o códice…</div>
+      <div class="sentinel" id="sentinel"></div>
+    </div>
+  </section>
+
+  <section class="calendar" id="calendario" aria-labelledby="cal-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="label">Sanctorale</div>
+          <h2 id="cal-h">Calendário dos santos</h2>
+          <p>Cada dia mostra quantos santos têm festa naquela data. Escolha um dia para ver a lista no catálogo.</p>
+        </div>
+        <div class="legend"><span>menos</span><i></i><span>mais</span></div>
+      </div>
+      <div class="months" id="months"></div>
+    </div>
+  </section>
+
+  <section class="support" id="apoie" aria-labelledby="ap-h">
+    <div class="wrap">
+      <div class="support-card">
+        <div>
+          <div class="label">Apoie</div>
+          <h2 id="ap-h">Ajude a manter o Hagiológio</h2>
+          <p>O Hagiológio é gratuito e não tem anúncios. Se ele te ajuda a rezar, estudar ou conhecer melhor os santos, você pode apoiar o site com uma doação de qualquer valor pelo Pix.</p>
+          <p>Cada doação ajuda a manter o site no ar e a ampliar o catálogo com novos retratos, festas e biografias.</p>
+        </div>
+        <div class="pix">
+          <div class="label">Chave Pix (CPF)</div>
+          <div class="pix-key" id="pix-key">04986358057</div>
+          <div class="pix-row">
+            <button class="btn" type="button" id="pix-copy">Copiar chave Pix</button>
+            <span class="pix-msg" id="pix-msg" aria-live="polite"></span>
+          </div>
+          <small>No app do seu banco, escolha Pix, depois "Pagar com chave" e cole a chave. Confira o nome do recebedor antes de confirmar.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="source" id="fonte" aria-labelledby="src-h">
+    <div class="wrap">
+      <div class="sec-head"><div><div class="label">Fonte</div><h2 id="src-h">De onde vêm os dados</h2></div></div>
+      <div class="source-grid">
+        <div>
+          <h3>Wikidata</h3>
+          <p>A lista reúne todo item do Wikidata cujo status de canonização (<code>P411</code>) é santo, santo católico, santo pré-congregação ou santo canonizado. Somam-se os santos anteriores ao Cisma marcados só com títulos orientais (taumaturgo, hieromártir, grande-mártir), como São Nicolau e São Jorge, e os que têm festa litúrgica e ficha numa base católica mas nenhum status registrado.</p>
+          <p>Do Wikidata vêm também as festas (<code>P841</code>), datas, ofícios, ordens religiosas, padroados e símbolos iconográficos. Beatos, veneráveis e servos de Deus ficaram de fora.</p>
+          <p>Os dados do Wikidata são de domínio público (CC0). Consulta feita em 25 de novembro de 2026.</p>
+        </div>
+        <div>
+          <h3>Só santos católicos</h3>
+          <p>Ficaram de fora santos venerados só pelas Igrejas ortodoxas ou por outras religiões: quem morreu depois do Cisma de 1054 sem nenhum vínculo católico registrado (religião, status católico ou ficha numa base católica) e com marcas de culto ortodoxo. O filtro é automático e pode errar em casos raros.</p>
+        </div>
+        <div>
+          <h3>Bases católicas cruzadas</h3>
+          <p>Quando o Wikidata conhece a ficha do santo, ela aparece como link: <a href="https://www.santiebeati.it/" target="_blank" rel="noopener">Santi e Beati</a>, <a href="https://www.causesanti.va/" target="_blank" rel="noopener">Dicastério das Causas dos Santos</a>, <a href="https://catholicsaints.info/" target="_blank" rel="noopener">CatholicSaints.info</a> e <a href="https://nominis.cef.fr/" target="_blank" rel="noopener">Nominis</a>.</p>
+        </div>
+        <div>
+          <h3>Retratos</h3>
+          <p>As imagens vêm do Wikimedia Commons (a imagem do santo no Wikidata) ou, quando o Wikidata não tem uma, da imagem livre principal do artigo do santo na Wikipédia. Foram reduzidas para miniatura. Cada uma tem sua própria licença e autoria; a ficha do santo traz o link para a página original da imagem. Quem não tem imagem em nenhuma das duas fontes aparece com um símbolo da sua vocação.</p>
+        </div>
+        <div>
+          <h3>Música</h3>
+          <p>As gravações vêm do Wikimedia Commons, todas livres:</p>
+          <ol class="music-list">
+            <li>Palestrina, <em>Missa Papae Marcelli</em>: Kyrie. European Archive. <a href="https://commons.wikimedia.org/wiki/File:Missa_Papae_Marcelli_-_I._Kyrie.flac" target="_blank" rel="noopener">CC0</a></li>
+            <li>Bach e Gounod, <em>Ave Maria</em>. Beal e Campbell. <a href="https://commons.wikimedia.org/wiki/File:Bach-Gounod_-_Ave_Maria_(Beal,_Campbell).flac" target="_blank" rel="noopener">Domínio público</a></li>
+            <li>Tomás Luis de Victoria, <em>Kyrie</em>. Coral Ahots-Argiak, Vitoria-Gasteiz. <a href="https://commons.wikimedia.org/wiki/File:Kyrie_de_Tomas_Luis_de_Victoria.webm" target="_blank" rel="noopener">CC0</a></li>
+            <li>Palestrina, <em>Missa Papae Marcelli</em>: Agnus Dei I. European Archive. <a href="https://commons.wikimedia.org/wiki/File:Missa_Papae_Marcelli_-_V._Agnus_Dei_I.flac" target="_blank" rel="noopener">CC0</a></li>
+            <li>Mozart, <em>Réquiem</em>: Agnus Dei. Regência de Josef Krips. <a href="https://commons.wikimedia.org/wiki/File:Mozart_-_Requiem_(Krips)_-_XIII._Agnus_Dei.flac" target="_blank" rel="noopener">Domínio público</a></li>
+            <li>"Agnus Dei X", Kevin MacLeod (incompetech.com). Licença <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">Creative Commons: By Attribution 3.0</a>.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Hagiológio · Communio Sanctorum</span>
+    <span>Dados: Wikidata (CC0) · Imagens: Wikimedia Commons</span>
+  </div>
+</footer>
+
+<div class="player" id="player" role="region" aria-label="Música sacra">
+  <button class="pl-play" id="pl-play" type="button" aria-label="Tocar música sacra" aria-pressed="false">
+    <svg viewBox="0 0 24 24" id="pl-icon" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+  </button>
+  <div class="pl-info">
+    <b>Música sacra</b>
+    <span id="pl-title">Toque para ouvir</span>
+    <small id="pl-sub">Palestrina, Victoria, Mozart…</small>
+  </div>
+  <div class="pl-ctrl" id="pl-ctrl" hidden>
+    <button type="button" id="pl-prev" aria-label="Faixa anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+    <button type="button" id="pl-next" aria-label="Próxima faixa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+    <input class="pl-vol" id="pl-vol" type="range" min="0" max="1" step="0.05" value="0.55" aria-label="Volume">
+  </div>
+</div>
+
+<dialog class="folio" id="folio" aria-labelledby="f-name">
+  <div class="folio-inner">
+    <div class="folio-nav">
+      <button type="button" id="f-prev" aria-label="Santo anterior">‹</button>
+      <button type="button" id="f-next" aria-label="Próximo santo">›</button>
+      <button type="button" id="f-close" aria-label="Fechar ficha">×</button>
+    </div>
+    <div id="folio-body"></div>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  "use strict";
+  const OGIVE = "M0,1 L0,0.42 C0,0.2 0.22,0.06 0.5,0 C0.78,0.06 1,0.2 1,0.42 L1,1 Z";
+  const SHEET = 10;
+  const MONTHS = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+  const MON3 = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
+  const DAYS_IN = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const TAGS = {
+    p: ["Papa", "Papa", "Papas"],
+    d: ["Doutor da Igreja", "Doutora da Igreja", "Doutores da Igreja"],
+    a: ["Figura bíblica", "Figura bíblica", "Bíblicos"],
+    b: ["Bispo", "Bispo", "Bispos"],
+    m: ["Mártir", "Mártir", "Mártires"],
+    k: ["Realeza", "Realeza", "Reis e nobres"],
+    u: ["Fundador", "Fundadora", "Fundadores"],
+    r: ["Religioso", "Religiosa", "Religiosos"],
+    n: ["Missionário", "Missionária", "Missionários"],
+    s: ["Sacerdote", "Sacerdote", "Sacerdotes"],
+    f: ["Padre da Igreja", "Padre da Igreja", "Padres da Igreja"],
+  };
+  const SALIENCE = ["p", "d", "f", "a", "b", "m", "k", "u", "r", "n", "s"];
+  const CHIP_ORDER = ["m", "a", "p", "b", "s", "r", "d", "n", "u", "k"];
+  const LANGS = { es: "espanhol", it: "italiano", en: "inglês", fr: "francês", la: "latim", de: "alemão", gl: "galego", ca: "catalão", mul: "forma internacional", pl: "polonês", nl: "neerlandês", ro: "romeno", hr: "croata", sl: "esloveno", cs: "tcheco", sk: "eslovaco", hu: "húngaro", eu: "basco", oc: "occitano", mt: "maltês", ga: "irlandês", cy: "galês", br: "bretão", lt: "lituano", lv: "letão", sv: "sueco", da: "dinamarquês", nb: "norueguês", tl: "tagalo", id: "indonésio", vi: "vietnamita" };
+  const GLASS = ["lapis", "amethyst", "verdigris", "lapis", "amethyst"];
+
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const norm = (s) => String(s || "").normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
+  const fmtN = (n) => n.toLocaleString("pt-BR");
+  const ROMAN = [[1000, "M"], [900, "CM"], [500, "D"], [400, "CD"], [100, "C"], [90, "XC"], [50, "L"], [40, "XL"], [10, "X"], [9, "IX"], [5, "V"], [4, "IV"], [1, "I"]];
+  const roman = (n) => { let s = ""; for (const [v, r] of ROMAN) while (n >= v) { s += r; n -= v; } return s; };
+
+  const now = new Date();
+  const TODAY = String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+
+  function fmtYear(t, approxPrefix) {
+    if (!t) return "";
+    const [y, p] = t;
+    if (p >= 9) return y < 0 ? `${-y} a.C.` : String(y);
+    if (p === 8) return y < 0 ? `c. ${-y} a.C.` : `c. ${y}`;
+    if (p === 7) { const c = y > 0 ? Math.ceil(y / 100) : Math.ceil(-y / 100); return `séc. ${roman(c)}${y < 0 ? " a.C." : ""}`; }
+    const m = Math.ceil(Math.abs(y) / 1000); return `${roman(m)} milênio${y < 0 ? " a.C." : ""}`;
+  }
+  const century = (t) => (t ? (t[0] > 0 ? Math.ceil(t[0] / 100) : -1) : null);
+  const fmtFeast = (f) => { const [m, d] = f.split("-").map(Number); return `${d} de ${MONTHS[m - 1]}`; };
+  const fmtFeastShort = (f) => { const [m, d] = f.split("-").map(Number); return `${d} ${MON3[m - 1]}`; };
+  const isFem = (r) => r.g === "f" || r.h === "Santa" || r.h === "Santas";
+  const isRed = (r) => (r.t || "").includes("m");
+
+  function tagList(r) {
+    const t = r.t || "";
+    const fem = isFem(r);
+    return SALIENCE.filter((k) => t.includes(k) && !(fem && "bsp".includes(k))).map((k) => TAGS[k][fem ? 1 : 0]);
+  }
+  function symFor(r) {
+    const t = r.t || "";
+    if (t.includes("p")) return "keys";
+    if (t.includes("d") || t.includes("f")) return "book";
+    if (t.includes("m")) return "palm";
+    if (t.includes("k")) return "crown";
+    if (t.includes("b")) return "crosier";
+    if (isFem(r)) return "lily";
+    if (t.includes("n")) return "shell";
+    if (t.includes("s")) return "chalice";
+    return "cross";
+  }
+  function glassFor(r) {
+    if (isRed(r)) return "garnet";
+    let h = 0; for (const c of r.id) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+    return GLASS[h % GLASS.length];
+  }
+
+  function portrait(r) {
+    let inner;
+    if (r.sp) {
+      const [sh, i] = r.sp, col = i % SHEET, row = Math.floor(i / SHEET);
+      inner = `<div class="arch-img" style="background-image:url(sprites/s${sh}.webp);background-position:${(col * 100 / (SHEET - 1)).toFixed(3)}% ${(row * 100 / (SHEET - 1)).toFixed(3)}%"></div>`;
+    } else {
+      inner = `<div class="arch-img emblem"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#sym-${symFor(r)}"/></svg></div>`;
+    }
+    return `<div class="arch" style="--glass:var(--${glassFor(r)})">${inner}<svg class="arch-frame" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true"><path d="${OGIVE}"/><path d="${OGIVE}"/></svg></div>`;
+  }
+
+  function feastFor(r, day, month) {
+    if (!r.f) return null;
+    if (day && r.f.includes(day)) return day;
+    if (month) { const f = r.f.find((x) => x.startsWith(month + "-")); if (f) return f; }
+    return r.f[0];
+  }
+  function card(r, day, month) {
+    const tags = tagList(r).slice(0, 2).join(" · ");
+    const bits = [];
+    const f = feastFor(r, day, month);
+    if (f) bits.push(`<span class="${isRed(r) ? "red" : ""}">${fmtFeastShort(f)}</span>`);
+    if (r.x) bits.push(`† ${fmtYear(r.x)}`);
+    return `<a class="card${isRed(r) ? " red" : ""}" href="#${r.id}" data-id="${r.id}">
+      ${portrait(r)}
+      <div class="plaque">
+        <span class="hon">${esc(r.h || " ")}</span>
+        <span class="nm">${esc(r.n)}</span>
+        ${tags ? `<span class="ep">${esc(tags)}</span>` : ""}
+        ${bits.length ? `<span class="dt">${bits.join(" · ")}</span>` : ""}
+      </div>
+    </a>`;
+  }
+
+  // ---------- state ----------
+  let ALL = [], BYID = new Map(), VIEW = [], shown = 0;
+  const st = { q: "", tag: "", gender: "", century: "", country: "", month: "", day: "", img: false, sort: "fame" };
+  const PAGE = 60;
+
+  function applyFilters() {
+    const q = norm(st.q.trim());
+    const words = q ? q.split(/\s+/) : [];
+    let list = ALL.filter((r) => {
+      if (st.tag && !(r.t || "").includes(st.tag)) return false;
+      if (st.gender) {
+        if (st.gender === "c" ? r.g !== "c" : (st.gender === "f" ? !isFem(r) : (isFem(r) || r.g === "c"))) return false;
+      }
+      if (st.century !== "" && String(r._c) !== st.century) return false;
+      if (st.country && r.c !== st.country) return false;
+      if (st.month && !(r.f || []).some((f) => f.startsWith(st.month + "-"))) return false;
+      if (st.day && !(r.f || []).includes(st.day)) return false;
+      if (st.img && !r.sp) return false;
+      if (words.length && !words.every((w) => r._s.includes(w))) return false;
+      return true;
+    });
+    if (st.sort === "az") list.sort((a, b) => a._k.localeCompare(b._k, "pt"));
+    else if (st.sort === "chrono") list.sort((a, b) => (a.x ? a.x[0] : 1e5) - (b.x ? b.x[0] : 1e5) || b.k - a.k);
+    else if (st.sort === "feast") list.sort((a, b) => (a.f ? a.f[0] : "99") .localeCompare(b.f ? b.f[0] : "99") || b.k - a.k);
+    else if (q) {
+      const score = (r) => (r._n.startsWith(q) ? 0 : r._n.includes(q) ? 1 : 2);
+      list.sort((a, b) => score(a) - score(b) || b.k - a.k);
+    }
+    VIEW = list;
+    shown = 0;
+    $("grid").innerHTML = "";
+    $("count").innerHTML = `<b>${fmtN(list.length)}</b> ${list.length === 1 ? "santo" : "santos"}`;
+    if (!list.length) $("grid").innerHTML = `<div class="empty" style="grid-column:1/-1">Nenhum santo com esses filtros. Tente tirar um filtro ou procurar outro nome.</div>`;
+    renderMore();
+    renderDayFilter();
+  }
+  function renderMore() {
+    if (shown >= VIEW.length) return;
+    const next = VIEW.slice(shown, shown + PAGE);
+    $("grid").insertAdjacentHTML("beforeend", next.map((r) => card(r, st.day, st.month)).join(""));
+    shown += next.length;
+  }
+  function renderDayFilter() {
+    const el = $("dayfilter");
+    if (!st.day) { el.innerHTML = ""; return; }
+    el.innerHTML = `<span class="active-filter">Festa em ${fmtFeast(st.day)}<button type="button" aria-label="Remover filtro do dia" id="dayx">×</button></span>`;
+    $("dayx").onclick = () => { st.day = ""; applyFilters(); };
+  }
+
+  // ---------- folio ----------
+  const dlg = $("folio");
+  let current = null;
+  function folio(r) {
+    const fem = isFem(r);
+    const tags = tagList(r);
+    const name = r.n;
+    const cap = name.charAt(0), rest = name.slice(1);
+    const lines = [];
+    const row = (k, v) => v ? `<dt>${k}</dt><dd>${v}</dd>` : "";
+    const plist = (arr, extra) => `<ul class="plist">${arr.map((x) => `<li>${esc(x)}</li>`).join("")}${extra ? `<li><em>${extra}</em></li>` : ""}</ul>`;
+
+    const born = [fmtYear(r.b), r.bp].filter(Boolean).map(esc).join(", ");
+    const died = [fmtYear(r.x), r.dp].filter(Boolean).map(esc).join(", ");
+    const life = row("Nascimento", born) + row("Morte", died) + row("País", r.c ? esc(r.c) : "") +
+      row("Ofícios", r.o ? esc(r.o.join(", ")) : "") + row("Cargos", r.p ? esc(r.p.join(", ")) : "") +
+      row("Ordem", r.ord ? esc(r.ord.join(", ")) : "");
+
+    let patron = "";
+    if (r.pc) patron += row("Causas e ofícios", plist(r.pc));
+    if (r.pk) patron += row("Países e regiões", plist(r.pk));
+    if (r.pl) patron += row("Cidades", plist(r.pl, r.pln ? `e mais ${fmtN(r.pln - r.pl.length)}` : ""));
+    if (r.pd) patron += row("Dioceses", plist(r.pd));
+    if (r.ch) patron += row("Igrejas", `${fmtN(r.ch)} ${r.ch === 1 ? "igreja ou capela dedicada" : "igrejas e capelas dedicadas"} registradas no Wikidata`);
+
+    let canon = "";
+    if (r.cn) canon = [r.cn.y ? `Em ${r.cn.y}` : "", r.cn.by ? `por ${esc(r.cn.by)}` : ""].filter(Boolean).join(" ");
+
+    const links = [];
+    if (r.w) links.push(`<a href="${esc(r.w)}" target="_blank" rel="noopener">Wikipédia${r.w.includes("pt.wikipedia") ? "" : " (inglês)"}</a>`);
+    if (r.ids && r.ids.sb) links.push(`<a href="https://www.santiebeati.it/dettaglio/${encodeURIComponent(r.ids.sb)}" target="_blank" rel="noopener">Santi e Beati</a>`);
+    if (r.ids && r.ids.cv) links.push(`<a href="https://www.causesanti.va/it/santi-e-beati/${encodeURIComponent(r.ids.cv)}.html" target="_blank" rel="noopener">Dicastério (Vaticano)</a>`);
+    if (r.ids && r.ids.cs) links.push(`<a href="https://catholicsaints.info/${encodeURIComponent(r.ids.cs)}/" target="_blank" rel="noopener">CatholicSaints.info</a>`);
+    if (r.ids && r.ids.nm) links.push(`<a href="https://nominis.cef.fr/contenus/saint/${encodeURIComponent(r.ids.nm)}.html" target="_blank" rel="noopener">Nominis</a>`);
+    links.push(`<a href="https://www.wikidata.org/wiki/${r.id}" target="_blank" rel="noopener">Wikidata ${r.id}</a>`);
+    if (r.img && r.sp) links.push(`<a href="https://${r.il ? r.il + ".wikipedia.org" : "commons.wikimedia.org"}/wiki/File:${encodeURIComponent(r.img.replace(/ /g, "_"))}" target="_blank" rel="noopener">Imagem original</a>`);
+
+    const red = isRed(r);
+    const feast = r.f
+      ? `<div class="val">${r.f.map(fmtFeast).join("<br>")}</div>
+         <div class="lit"><i style="background:${red ? "#a8262e" : "#f6f1e4"}"></i>cor litúrgica: ${red ? "vermelho" : "branco"}</div>
+         <button class="cal-link" type="button" data-day="${r.f[0]}">outros santos deste dia</button>`
+      : `<div class="val" style="font-style:italic;color:var(--ink-soft)">sem data registrada</div>`;
+
+    const desc = r.d ? `<p class="desc">${esc(r.d)}</p>` : r.de ? `<p class="desc" lang="en">${esc(r.de)}<small lang="pt">descrição do Wikidata, em inglês</small></p>` : "";
+
+    $("folio-body").innerHTML = `
+      <div class="folio-grid">
+        <div class="folio-side">
+          ${portrait(r)}
+          <div class="feast-box"><div class="lbl">Festa litúrgica</div>${feast}</div>
+        </div>
+        <div class="folio-main">
+          <div class="hon">${esc(r.h || "")}</div>
+          <h2 id="f-name"><span class="cap">${esc(cap)}</span>${esc(rest)}</h2>
+          ${r.la ? `<div class="latin" lang="la">${esc(r.la)}</div>` : ""}
+          ${r.nl ? `<div class="namenote">Sem forma portuguesa no Wikidata; nome em ${LANGS[r.nl] || r.nl}.</div>` : ""}
+          ${tags.length ? `<div class="epithet">${tags.map((t) => `<span class="tag${t === "Mártir" ? " m" : ""}">${esc(t)}</span>`).join("")}</div>` : ""}
+          ${desc}
+          ${life ? `<div class="rubric-h">Vida</div><dl class="facts">${life}</dl>` : ""}
+          ${patron ? `<div class="rubric-h">${fem ? "Padroeira de" : "Padroeiro de"}</div><dl class="facts">${patron}</dl>` : ""}
+          ${r.sy ? `<div class="rubric-h">Iconografia</div><p>Representado${fem ? "a" : ""} com: ${esc(r.sy.join(", "))}.</p>` : ""}
+          ${canon ? `<div class="rubric-h">Canonização</div><p>${canon}.</p>` : ""}
+          <div class="rubric-h">Fontes</div>
+          <div class="links">${links.join("")}</div>
+        </div>
+      </div>`;
+    const cl = $("folio-body").querySelector(".cal-link");
+    if (cl) cl.onclick = () => { closeFolio(); showDay(cl.dataset.day); };
+    const idx = VIEW.indexOf(r);
+    $("f-prev").disabled = idx <= 0;
+    $("f-next").disabled = idx < 0 || idx >= VIEW.length - 1;
+  }
+  function openFolio(id) {
+    const r = BYID.get(id);
+    if (!r) return;
+    current = r;
+    folio(r);
+    if (!dlg.open) { dlg.showModal(); document.body.classList.add("locked"); }
+    dlg.scrollTop = 0;
+  }
+  function closeFolio() {
+    if (dlg.open) dlg.close();
+  }
+  dlg.addEventListener("close", () => {
+    document.body.classList.remove("locked");
+    current = null;
+    if (/^#Q\d+$/.test(location.hash)) { try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {} }
+  });
+  dlg.addEventListener("click", (e) => { if (e.target === dlg) closeFolio(); });
+  $("f-close").onclick = closeFolio;
+  function step(d) {
+    if (!current) return;
+    const i = VIEW.indexOf(current);
+    const r = VIEW[i + d];
+    if (!r) return;
+    try { history.replaceState(null, "", "#" + r.id); } catch (e) {}
+    openFolio(r.id);
+  }
+  $("f-prev").onclick = () => step(-1);
+  $("f-next").onclick = () => step(1);
+  dlg.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") step(-1);
+    if (e.key === "ArrowRight") step(1);
+  });
+  function routeHash() {
+    const m = /^#(Q\d+)$/.exec(location.hash);
+    if (m && BYID.has(m[1])) openFolio(m[1]);
+  }
+  window.addEventListener("hashchange", routeHash);
+
+  // ---------- today ----------
+  function renderToday() {
+    let day = TODAY;
+    let list = ALL.filter((r) => (r.f || []).includes(day));
+    $("hoje-date").textContent = `Hoje · ${fmtFeast(day)}`;
+    $("hoje-sub").textContent = list.length
+      ? `${fmtN(list.length)} ${list.length === 1 ? "santo tem" : "santos têm"} festa neste dia. Os mais conhecidos primeiro.`
+      : "Nenhum santo do catálogo tem festa registrada hoje.";
+    $("today-row").innerHTML = list.slice(0, 14).map((r) => card(r, day)).join("") || "";
+    $("hoje-all").onclick = () => showDay(day);
+    $("hoje-all").hidden = !list.length;
+  }
+  function showDay(day) {
+    Object.assign(st, { q: "", tag: "", gender: "", century: "", country: "", month: "", img: false, day, sort: "fame" });
+    syncControls();
+    applyFilters();
+    document.getElementById("catalogo").scrollIntoView({ block: "start" });
+  }
+
+  // ---------- calendar ----------
+  function renderCalendar() {
+    const counts = {};
+    for (const r of ALL) for (const f of r.f || []) counts[f] = (counts[f] || 0) + 1;
+    const max = Math.max(...Object.values(counts));
+    let html = "";
+    for (let m = 0; m < 12; m++) {
+      let total = 0, cells = "";
+      for (let d = 1; d <= DAYS_IN[m]; d++) {
+        const key = String(m + 1).padStart(2, "0") + "-" + String(d).padStart(2, "0");
+        const n = counts[key] || 0;
+        total += n;
+        const a = n ? (0.08 + 0.92 * Math.sqrt(n / max)).toFixed(3) : 0.03;
+        cells += `<button type="button" class="day${a > 0.62 ? " hi" : ""}${key === TODAY ? " is-today" : ""}" style="--a:${a}" data-day="${key}" aria-label="${d} de ${MONTHS[m]}: ${n} ${n === 1 ? "santo" : "santos"}" title="${d} de ${MONTHS[m]} · ${n} ${n === 1 ? "santo" : "santos"}">${d}</button>`;
+      }
+      html += `<div class="month"><h3>${MONTHS[m]}<small>${fmtN(total)}</small></h3><div class="days">${cells}</div></div>`;
+    }
+    $("months").innerHTML = html;
+    $("months").addEventListener("click", (e) => { const b = e.target.closest(".day"); if (b) showDay(b.dataset.day); });
+  }
+
+  // ---------- controls ----------
+  function buildControls() {
+    $("chips").innerHTML = `<button type="button" class="chip" data-tag="" aria-pressed="true">Todos</button>` +
+      CHIP_ORDER.map((k) => `<button type="button" class="chip ${k}" data-tag="${k}" aria-pressed="false">${TAGS[k][2]}</button>`).join("");
+    $("chips").addEventListener("click", (e) => {
+      const b = e.target.closest(".chip"); if (!b) return;
+      st.tag = b.dataset.tag; syncControls(); applyFilters();
+    });
+    const cc = new Map();
+    for (const r of ALL) if (r._c !== null) cc.set(r._c, (cc.get(r._c) || 0) + 1);
+    const cents = [...cc.keys()].sort((a, b) => a - b);
+    $("century").insertAdjacentHTML("beforeend", cents.map((c) => `<option value="${c}">${c < 0 ? "Antes de Cristo" : `Século ${roman(c)}`} (${fmtN(cc.get(c))})</option>`).join(""));
+    const ct = new Map();
+    for (const r of ALL) if (r.c) ct.set(r.c, (ct.get(r.c) || 0) + 1);
+    const countries = [...ct.entries()].filter(([, n]) => n >= 6).sort((a, b) => a[0].localeCompare(b[0], "pt"));
+    $("country").insertAdjacentHTML("beforeend", countries.map(([c, n]) => `<option value="${esc(c)}">${esc(c)} (${fmtN(n)})</option>`).join(""));
+    $("month").insertAdjacentHTML("beforeend", MONTHS.map((m, i) => `<option value="${String(i + 1).padStart(2, "0")}">${m[0].toUpperCase() + m.slice(1)}</option>`).join(""));
+
+    let t;
+    const onQ = (v, other) => { st.q = v; other.value = v; clearTimeout(t); t = setTimeout(applyFilters, 140); };
+    $("q").addEventListener("input", (e) => onQ(e.target.value, $("hero-q")));
+    $("hero-q").addEventListener("input", (e) => onQ(e.target.value, $("q")));
+    $("hero-q").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); document.getElementById("catalogo").scrollIntoView({ block: "start" }); } });
+    for (const id of ["sort", "gender", "century", "country", "month"]) $(id).addEventListener("change", (e) => { st[id] = e.target.value; if (id === "month") st.day = ""; applyFilters(); });
+    $("img").addEventListener("change", (e) => { st.img = e.target.checked; applyFilters(); });
+    $("clear").onclick = () => { Object.assign(st, { q: "", tag: "", gender: "", century: "", country: "", month: "", day: "", img: false }); syncControls(); applyFilters(); };
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "/" && !dlg.open && !/input|select|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); $("q").focus(); }
+    });
+  }
+  function syncControls() {
+    $("q").value = st.q; $("hero-q").value = st.q;
+    for (const id of ["sort", "gender", "century", "country", "month"]) $(id).value = st[id];
+    $("img").checked = st.img;
+    for (const b of $("chips").querySelectorAll(".chip")) b.setAttribute("aria-pressed", String(b.dataset.tag === st.tag));
+  }
+
+  // ---------- boot ----------
+  async function boot() {
+    let data;
+    try {
+      const res = await fetch("saints.json");
+      if (!res.ok) throw new Error(res.status);
+      data = await res.json();
+    } catch (e) {
+      $("grid-loading").textContent = "Não foi possível abrir o arquivo de dados (saints.json). Recarregue a página.";
+      $("today-row").innerHTML = "";
+      return;
+    }
+    ALL = data;
+    for (const r of ALL) {
+      r._n = norm(r.n);
+      r._k = r._n;
+      r._c = century(r.x);
+      r._s = norm([r.h, r.n, r.la, r.alt, r.c, r.bp, r.dp, (r.o || []).join(" "), (r.ord || []).join(" "), (r.pc || []).join(" "), (r.pk || []).join(" ")].filter(Boolean).join(" "));
+      BYID.set(r.id, r);
+    }
+    $("lede-n").textContent = fmtN(ALL.length);
+    $("st-n").textContent = fmtN(ALL.length);
+    $("st-img").textContent = fmtN(ALL.filter((r) => r.sp).length);
+    $("st-f").textContent = fmtN(ALL.filter((r) => r.f).length);
+    $("st-m").textContent = fmtN(ALL.filter((r) => isRed(r)).length);
+    $("grid-loading").hidden = true;
+    buildControls();
+    renderToday();
+    renderCalendar();
+    applyFilters();
+    const io = new IntersectionObserver((ents) => { if (ents.some((e) => e.isIntersecting)) renderMore(); }, { rootMargin: "900px 0px" });
+    io.observe($("sentinel"));
+    routeHash();
+  }
+
+  // ---------- rose window ----------
+  function drawRose() {
+    const cv = $("rose");
+    const ctx = cv.getContext("2d");
+    const S = cv.width, c = S / 2, R = S / 2 - 6;
+    const TAU = Math.PI * 2;
+    let seed = 7;
+    const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const COL = { lapis: ["#1b3f8f", "#2f63c9"], ruby: ["#8f1622", "#d0373f"], gold: ["#a77a1c", "#f0c75a"], green: ["#14604f", "#2fa184"], violet: ["#4a1f6e", "#8a4fc0"], white: ["#8d8aa0", "#e8e3f0"] };
+    const lead = "#08060b";
+
+    function glass(path, col, cx, cy, rad) {
+      ctx.save();
+      ctx.fill(path);
+      const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, rad);
+      g.addColorStop(0, COL[col][1]); g.addColorStop(1, COL[col][0]);
+      ctx.fillStyle = g; ctx.fill(path);
+      ctx.clip(path);
+      for (let i = 0; i < 26; i++) {
+        ctx.fillStyle = `rgba(255,255,255,${(rnd() * 0.09).toFixed(3)})`;
+        ctx.beginPath(); ctx.arc(cx + (rnd() - 0.5) * rad * 2, cy + (rnd() - 0.5) * rad * 2, rnd() * rad * 0.35, 0, TAU); ctx.fill();
+      }
+      ctx.restore();
+      ctx.lineWidth = S * 0.006; ctx.strokeStyle = lead; ctx.stroke(path);
+    }
+    function circlePath(x, y, r) { const p = new Path2D(); p.arc(x, y, r, 0, TAU); return p; }
+    function lancet(ang, r0, r1, half) {
+      // pointed petal along the radius at angle ang
+      const p = new Path2D();
+      const rm = r0 + (r1 - r0) * 0.55;
+      const pt = (r, off) => { const a = ang + off; return [c + Math.cos(a) * r, c + Math.sin(a) * r]; };
+      const w0 = half * 0.55, w1 = half;
+      const [ax, ay] = pt(r0, -w0 * (rm / r0) * 0.5), [bx, by] = pt(rm, -w1), [tx, ty] = pt(r1, 0), [dx, dy] = pt(rm, w1), [ex, ey] = pt(r0, w0 * (rm / r0) * 0.5);
+      const [k1x, k1y] = pt(r1 * 0.97, -w1 * 0.75), [k2x, k2y] = pt(r1 * 0.97, w1 * 0.75);
+      p.moveTo(ax, ay); p.lineTo(bx, by); p.quadraticCurveTo(k1x, k1y, tx, ty); p.quadraticCurveTo(k2x, k2y, dx, dy); p.lineTo(ex, ey);
+      p.arc(c, c, r0, ang + w0 * (rm / r0) * 0.5, ang - w0 * (rm / r0) * 0.5, true);
+      p.closePath();
+      return p;
+    }
+
+    ctx.clearRect(0, 0, S, S);
+    // stone disc
+    const stone = ctx.createRadialGradient(c, c, R * 0.2, c, c, R);
+    stone.addColorStop(0, "#2a2431"); stone.addColorStop(1, "#141018");
+    ctx.fillStyle = stone; ctx.beginPath(); ctx.arc(c, c, R, 0, TAU); ctx.fill();
+
+    const N = 12;
+    // outer roundels
+    for (let i = 0; i < 24; i++) {
+      const a = (i / 24) * TAU, rr = R * 0.065, rad = R * 0.915;
+      const x = c + Math.cos(a) * rad, y = c + Math.sin(a) * rad;
+      glass(circlePath(x, y, rr), i % 2 ? "ruby" : "lapis", x, y, rr);
+    }
+    // great petals
+    const petalCols = ["lapis", "ruby", "lapis", "gold", "lapis", "ruby", "lapis", "green", "lapis", "ruby", "lapis", "violet"];
+    for (let i = 0; i < N; i++) {
+      const a = (i / N) * TAU - Math.PI / 2;
+      const p = lancet(a, R * 0.36, R * 0.84, (Math.PI / N) * 0.82);
+      const mx = c + Math.cos(a) * R * 0.62, my = c + Math.sin(a) * R * 0.62;
+      glass(p, petalCols[i], mx, my, R * 0.26);
+      const inner = lancet(a, R * 0.42, R * 0.7, (Math.PI / N) * 0.42);
+      glass(inner, petalCols[i] === "lapis" ? "white" : "gold", c + Math.cos(a) * R * 0.56, c + Math.sin(a) * R * 0.56, R * 0.14);
+      const ox = c + Math.cos(a) * R * 0.765, oy = c + Math.sin(a) * R * 0.765;
+      glass(circlePath(ox, oy, R * 0.034), "gold", ox, oy, R * 0.034);
+      // trefoils between petals
+      const b = a + Math.PI / N, tx = c + Math.cos(b) * R * 0.8, ty = c + Math.sin(b) * R * 0.8;
+      glass(circlePath(tx, ty, R * 0.045), "green", tx, ty, R * 0.045);
+    }
+    // inner rosette
+    for (let i = 0; i < N; i++) {
+      const a = (i / N) * TAU - Math.PI / 2 + Math.PI / N;
+      const x = c + Math.cos(a) * R * 0.27, y = c + Math.sin(a) * R * 0.27;
+      glass(circlePath(x, y, R * 0.075), i % 2 ? "ruby" : "violet", x, y, R * 0.075);
+    }
+    // center: quatrefoil with cross
+    const q = new Path2D();
+    for (let i = 0; i < 4; i++) { const a = (i / 4) * TAU; q.moveTo(c + Math.cos(a) * R * 0.075 + R * 0.075, c + Math.sin(a) * R * 0.075); q.arc(c + Math.cos(a) * R * 0.075, c + Math.sin(a) * R * 0.075, R * 0.075, 0, TAU); }
+    glass(circlePath(c, c, R * 0.165), "gold", c, c, R * 0.165);
+    ctx.save(); ctx.strokeStyle = lead; ctx.lineWidth = S * 0.012; ctx.lineCap = "round";
+    ctx.beginPath(); ctx.moveTo(c, c - R * 0.12); ctx.lineTo(c, c + R * 0.12); ctx.moveTo(c - R * 0.12, c); ctx.lineTo(c + R * 0.12, c); ctx.stroke(); ctx.restore();
+    // tracery rings
+    ctx.strokeStyle = "#4b4155"; ctx.lineWidth = S * 0.012;
+    for (const rr of [R * 0.995, R * 0.85, R * 0.355, R * 0.17]) { ctx.beginPath(); ctx.arc(c, c, rr, 0, TAU); ctx.stroke(); }
+    ctx.strokeStyle = "rgba(255,240,210,0.09)"; ctx.lineWidth = S * 0.003;
+    for (const rr of [R * 0.985, R * 0.84]) { ctx.beginPath(); ctx.arc(c, c, rr, 0, TAU); ctx.stroke(); }
+  }
+
+  // ---------- sacred music ----------
+  const TRACKS = [
+    { src: "music/m1.mp3", t: "Kyrie · Missa Papae Marcelli", a: "Palestrina" },
+    { src: "music/m2.mp3", t: "Ave Maria", a: "Bach e Gounod" },
+    { src: "music/m3.mp3", t: "Kyrie", a: "Tomás Luis de Victoria" },
+    { src: "music/m4.mp3", t: "Agnus Dei · Missa Papae Marcelli", a: "Palestrina" },
+    { src: "music/m5.mp3", t: "Agnus Dei · Réquiem", a: "Mozart" },
+    { src: "music/m6.mp3", t: "Agnus Dei X", a: "Kevin MacLeod (incompetech.com)" },
+  ];
+  const PLAY = '<path d="M7 4.5v15l13-7.5z"/>', PAUSE = '<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>';
+  const audio = new Audio();
+  audio.preload = "none";
+  let track = -1;
+  let vol = 0.55;
+  try { const v = parseFloat(localStorage.getItem("hagio-vol")); if (v >= 0 && v <= 1) vol = v; } catch (e) {}
+  $("pl-vol").value = vol;
+  audio.volume = vol;
+  function loadTrack(i) {
+    track = (i + TRACKS.length) % TRACKS.length;
+    audio.src = TRACKS[track].src;
+    $("pl-title").textContent = TRACKS[track].t;
+    $("pl-sub").textContent = TRACKS[track].a;
+  }
+  function playNow() { audio.play().catch(() => { $("pl-sub").textContent = "Toque de novo para ouvir"; }); }
+  $("pl-play").onclick = () => {
+    if (track < 0) loadTrack(0);
+    if (audio.paused) playNow(); else audio.pause();
+  };
+  $("pl-next").onclick = () => { loadTrack(track + 1); playNow(); };
+  $("pl-prev").onclick = () => { loadTrack(audio.currentTime > 5 ? track : track - 1); playNow(); };
+  audio.addEventListener("ended", () => { loadTrack(track + 1); playNow(); });
+  audio.addEventListener("play", () => {
+    $("player").classList.add("playing"); $("pl-ctrl").hidden = false;
+    $("pl-icon").innerHTML = PAUSE; $("pl-play").setAttribute("aria-pressed", "true"); $("pl-play").setAttribute("aria-label", "Pausar música");
+  });
+  audio.addEventListener("pause", () => {
+    $("player").classList.remove("playing");
+    $("pl-icon").innerHTML = PLAY; $("pl-play").setAttribute("aria-pressed", "false"); $("pl-play").setAttribute("aria-label", "Tocar música sacra");
+  });
+  audio.addEventListener("error", () => { if (track >= 0) { loadTrack(track + 1); playNow(); } });
+  $("pl-vol").addEventListener("input", (e) => {
+    vol = parseFloat(e.target.value); audio.volume = vol;
+    try { localStorage.setItem("hagio-vol", String(vol)); } catch (err) {}
+  });
+
+  // ---------- Pix ----------
+  $("pix-copy").onclick = () => {
+    const key = $("pix-key").textContent.trim();
+    const done = () => { $("pix-msg").textContent = "Chave copiada. Cole no app do seu banco."; };
+    const fallback = () => {
+      const sel = window.getSelection(), range = document.createRange();
+      range.selectNodeContents($("pix-key")); sel.removeAllRanges(); sel.addRange(range);
+      $("pix-msg").textContent = "Chave selecionada. Use Ctrl+C ou Copiar.";
+    };
+    try { navigator.clipboard.writeText(key).then(done, fallback); } catch (e) { fallback(); }
+  };
+
+  try { drawRose(); } catch (e) {}
+  boot();
+})();
+</script>
+
+</body>
+</html>
