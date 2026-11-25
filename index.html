@@ -225,7 +225,8 @@ select:focus { outline: none; border-color: var(--gilt); }
 .plaque .dt .red { color: #d46a6f; }
 .empty { padding: 60px 0; text-align: center; color: var(--ash); font-style: italic; font-size: var(--step-1); }
 .loading { padding: 80px 0; text-align: center; color: var(--ash); font-style: italic; font-size: var(--step-1); }
-.sentinel { height: 1px; }
+.more { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 40px; }
+.more small { color: var(--ash-dim); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
 
 /* ---------- Calendar ---------- */
 .calendar { padding-block: 60px; border-top: 1px solid var(--rib); }
@@ -510,7 +511,10 @@ dialog.folio::backdrop { background: rgba(6, 4, 8, 0.78); backdrop-filter: blur(
     <div class="wrap">
       <div class="grid" id="grid"></div>
       <div class="loading" id="grid-loading">Abrindo o códice…</div>
-      <div class="sentinel" id="sentinel"></div>
+      <div class="more" id="more" hidden>
+        <button class="btn" type="button" id="more-btn">Mostrar mais santos</button>
+        <small id="more-n"></small>
+      </div>
     </div>
   </section>
 
@@ -825,11 +829,19 @@ dialog.folio::backdrop { background: rgba(6, 4, 8, 0.78); backdrop-filter: blur(
     renderMore();
     renderDayFilter();
   }
+  // The catalog grows only on request, so the sections below it (calendar, support, sources) stay reachable.
   function renderMore() {
-    if (shown >= VIEW.length) return;
-    const next = VIEW.slice(shown, shown + PAGE);
-    $("grid").insertAdjacentHTML("beforeend", next.map((r) => card(r, st.day, st.month)).join(""));
-    shown += next.length;
+    if (shown < VIEW.length) {
+      const next = VIEW.slice(shown, shown + PAGE);
+      $("grid").insertAdjacentHTML("beforeend", next.map((r) => card(r, st.day, st.month)).join(""));
+      shown += next.length;
+    }
+    const left = VIEW.length - shown;
+    $("more").hidden = left <= 0;
+    if (left > 0) {
+      $("more-btn").textContent = `Mostrar mais ${fmtN(Math.min(PAGE, left))} santos`;
+      $("more-n").textContent = `${fmtN(shown)} de ${fmtN(VIEW.length)} exibidos`;
+    }
   }
   function renderDayFilter() {
     const el = $("dayfilter");
@@ -1242,8 +1254,7 @@ dialog.folio::backdrop { background: rgba(6, 4, 8, 0.78); backdrop-filter: blur(
     renderToday();
     renderCalendar();
     applyFilters();
-    const io = new IntersectionObserver((ents) => { if (ents.some((e) => e.isIntersecting)) renderMore(); }, { rootMargin: "900px 0px" });
-    io.observe($("sentinel"));
+    $("more-btn").onclick = renderMore;
     routeHash();
   }
 
